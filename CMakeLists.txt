@@ -14,14 +14,30 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 
-option(SYLVER_MATH_TESTS "Build library tests" ON)
+set(CMAKE_DEBUG_POSTFIX -d)
+if(WIN32)
+    set(CMAKE_STATIC_LIBRARY_SUFFIX .lib)
+endif()
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+    message(FATAL_ERROR "32bit not supported")
+endif()
+
+option(SYLVER_MATH_TESTS "Build library tests" OFF)
+option(SYLVER_MATH_BUILD_SHARED "Build as a shared library" OFF)
 
 include(FetchContent)
 
 file(GLOB_RECURSE SYLVER_MATH_SOURCES ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp)
 file(GLOB_RECURSE SYLVER_MATH_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.hpp)
 
-add_library(SylverMath ${SYLVER_MATH_SOURCES} ${SYLVER_MATH_HEADERS})
+
+
+if(SYLVER_MATH_BUILD_SHARED)
+    add_library(SylverMath SHARED ${SYLVER_MATH_SOURCES} ${SYLVER_MATH_HEADERS})
+else()
+    add_library(SylverMath STATIC ${SYLVER_MATH_SOURCES} ${SYLVER_MATH_HEADERS})
+endif()
 
 target_include_directories(SylverMath PUBLIC 
     ${CMAKE_CURRENT_LIST_DIR}/include
