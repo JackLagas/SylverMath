@@ -187,7 +187,7 @@ namespace Sylver::Math {
         return *this;
     }
     Matrix4x2 Matrix4x2::operator-(const Matrix4x2& mat){
-        Matrix3x2 result;
+        Matrix4x2 result;
         for(U32 i = 0; i < 2; i++){
             result[i] = m_Values[i] - mat[i];
         }
