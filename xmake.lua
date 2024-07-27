@@ -1,5 +1,5 @@
 set_project("SylverMath")
-set_version("0.2.0")
+set_version("0.3.0")
 add_rules("mode.debug", "mode.release")
 
 option("kind")
