@@ -6,127 +6,174 @@
 
 namespace Sylver::Math{
 
-    struct Vector2;
-    struct Vector3;
-    struct Vector4;
+    template<std::size_t L, typename T>
+    struct Vector {
+        T m_Data[L];
+    };
 
-    typedef Vector2 Vec2;
-    typedef Vector3 Vec3;
-    typedef Vector4 Vec4;
 
-    struct Vector2{
-        union{ F64 x, r, s; };
-        union{ F64 y, g, t; };
+    template<typename T = BASE_TYPE>
+    using Vector2 = Vector<2, T>;
+    template<typename T = BASE_TYPE>
+    using Vector3 = Vector<3, T>;
+    template<typename T = BASE_TYPE>
+    using Vector4 = Vector<4, T>;
+
+    using Vector2f = Vector<2, F32>;
+    using Vector3f = Vector<3, F32>;
+    using Vector4f = Vector<4, F32>;
+
+    using Vector2d = Vector<2, F64>;
+    using Vector3d = Vector<3, F64>;
+    using Vector4d = Vector<4, F64>;
+
+    template<typename T>
+    struct Vector<2, T>{
+        union {
+            T m_Data[2];
+            struct {
+                union{ T x, r, s; };
+                union{ T y, g, t; };
+            };
+        };
 
         static const U32 SIZE = 2;
 
-        Vector2();
-        Vector2(const Vector2& vec);
-        Vector2(const F64& x1, const F64& y1);
-
-        Vector2(const Vector3& vec);
-        Vector2(const Vector4& vec);
-
-
-        F64 operator[](const U32& index);
-        const F64 operator[](const U32& index) const ;
+        Vector();
+        Vector(const Vector<2, T>& vec);
+        Vector(const T& x1, const T& y1);
+        Vector(const Vector<3, T>& vec);
+        Vector(const Vector<4, T>& vec);
 
 
-        Vector2 operator=(const Vector2& vec);
+        T& operator[](const U32& index){ return m_Data[index]; }
+        const T& operator[](const U32& index) const { return m_Data[index]; }
 
-        Vector2 operator+(const Vector2& vec);
-        Vector2 operator+=(const Vector2& vec);
-        Vector2 operator-(const Vector2& vec);
-        Vector2 operator-=(const Vector2& vec);
-        Vector2 operator*(const F64& scalar);
-        Vector2 operator*=(const F64& scalar);
-        F64 operator*(const Vector2& vec);
-        Vector2 operator/(const F64& scalar);
-        Vector2 operator/=(const F64& scalar);
+        T& At(U32 index) { return m_Data[index]; }
 
 
-        Bool operator==(const Vector2& vec) const;
+        Vector operator=(const Vector<2, T>& vec);
+
+        Vector operator+(const Vector<2, T>& vec);
+        Vector operator+=(const Vector<2, T>& vec);
+        Vector operator-(const Vector<2, T>& vec);
+        Vector operator-=(const Vector<2, T>& vec);
+        Vector operator*(const T& scalar);
+        Vector operator*=(const T& scalar);
+        T operator*(const Vector<2, T>& vec);
+        Vector operator/(const T& scalar);
+        Vector operator/=(const T& scalar);
+
+
+        Bool operator==(const Vector<2, T>& vec) const;
+        Bool operator!=(const Vector<2, T>& vec) const { return !(operator==(vec)); }
     };
-    std::ostream& operator<<(std::ostream& stream, const Vector2& vec);
-    Vector2 operator*(const F64& scalar, const Vector2& vec);
-    Vector2 operator*=(const F64& scalar, Vector2& vec);
+    std::ostream& operator<<(std::ostream& stream, const Vector2<BASE_TYPE>& vec);
+    Vector2<BASE_TYPE> operator*(const BASE_TYPE& scalar, const Vector2<BASE_TYPE>& vec);
+    Vector2<BASE_TYPE> operator*=(const BASE_TYPE& scalar, Vector2<BASE_TYPE>& vec);
 
-    struct Vector3{
-        union{ F64 x, r, s; };
-        union{ F64 y, g, t; };
-        union{ F64 z, b, u; };
+    template<typename T>
+    struct Vector<3, T>{
+        union {
+            T m_Data[3];
+            struct {
+                union{ T x, r, s; };
+                union{ T y, g, t; };
+                union{ T z, b, u; };
+            };
+        };
 
         static const U32 SIZE = 3;
 
-        Vector3();
-        Vector3(const Vector3& vec);
-        Vector3(const Vector2& vec, const F64& z1);
-        Vector3(const F64& x1, const Vector2& vec);
-        Vector3(const F64& x1, const F64& y1, const F64& z1);
+        Vector();
+        Vector(const Vector<3, T>& vec);
+        Vector(const Vector<2, T>& vec, const T& z1);
+        Vector(const T& x1, const Vector<2, T>& vec);
+        Vector(const T& x1, const T& y1, const T& z1);
 
-        Vector3(const Vector2& vec);
-        Vector3(const Vector4& vec);
+        Vector(const Vector<2, T>& vec);
+        Vector(const Vector<4, T>& vec);
 
-        F64 operator[](const U32& index);
-        const F64 operator[](const U32& index) const ;
+        T& operator[](const U32& index){ return m_Data[index]; }
+        const T& operator[](const U32& index) const { return m_Data[index]; }
 
-        Vector3 operator=(const Vector3& vec);
+        T& At(U32 index) { return m_Data[index]; }
 
-        Vector3 operator+(const Vector3& vec);
-        Vector3 operator+=(const Vector3& vec);
-        Vector3 operator-(const Vector3& vec);
-        Vector3 operator-=(const Vector3& vec);
-        Vector3 operator*(const F64& scalar);
-        Vector3 operator*=(const F64& scalar);
-        F64 operator*(const Vector3& vec);
-        Vector3 operator/(const F64& scalar);
-        Vector3 operator/=(const F64& scalar);
+        Vector operator=(const Vector<3, T>& vec);
 
-        Bool operator==(const Vector3& vec) const;
+        Vector operator+(const Vector<3, T>& vec);
+        Vector operator+=(const Vector<3, T>& vec);
+        Vector operator-(const Vector<3, T>& vec);
+        Vector operator-=(const Vector<3, T>& vec);
+        Vector operator*(const T& scalar);
+        Vector operator*=(const T& scalar);
+        T operator*(const Vector<3, T>& vec);
+        Vector operator/(const T& scalar);
+        Vector operator/=(const T& scalar);
+
+        Bool operator==(const Vector<3, T>& vec) const;
+        Bool operator!=(const Vector<3, T>& vec) const { return !(operator==(vec)); }
     };
-    std::ostream& operator<<(std::ostream& stream, const Vector3& vec);
-    Vector3 operator*(const F64& scalar, const Vector3& vec);
-    Vector3 operator*=(const F64& scalar, const Vector3& vec);
+    std::ostream& operator<<(std::ostream& stream, const Vector3<BASE_TYPE>& vec);
+    Vector3<BASE_TYPE> operator*(const BASE_TYPE& scalar, const Vector3<BASE_TYPE>& vec);
+    Vector3<BASE_TYPE> operator*=(const BASE_TYPE& scalar, const Vector3<BASE_TYPE>& vec);
     
-    struct Vector4{
-        union{ F64 x, r, s; };
-        union{ F64 y, g, t; };
-        union{ F64 z, b, p; };
-        union{ F64 w, a, q; };
+    template<typename T>
+    struct Vector<4, T>{
+        union {
+            T m_Data[4];
+            struct{
+                union{ T x, r, s; };
+                union{ T y, g, t; };
+                union{ T z, b, p; };
+                union{ T w, a, q; };
+            };
+        };
 
         static const U32 SIZE = 4;
 
-        Vector4();
-        Vector4(const Vector4& vec);
-        Vector4(const Vector3& vec, const F64& w1);
-        Vector4(const F64& x1, const Vector3& vec);
-        Vector4(const Vector2& vec, const F64& z1, const F64& w1);
-        Vector4(const F64& x1, const Vector2& vec, const F64& w1);
-        Vector4(const F64& x1, const F64& y1, const Vector2& vec);
-        Vector4(const F64& x1, const F64& y1, const F64& z1, const F64& w1);
+        Vector();
+        Vector(const Vector<4, T>& vec);
+        Vector(const Vector<3, T>& vec, const T& w1);
+        Vector(const T& x1, const Vector<3, T>& vec);
+        Vector(const Vector<2, T>& vec, const T& z1, const T& w1);
+        Vector(const T& x1, const Vector<2, T>& vec, const T& w1);
+        Vector(const T& x1, const T& y1, const Vector<2, T>& vec);
+        Vector(const T& x1, const T& y1, const T& z1, const T& w1);
 
-        Vector4(const Vector2& vec);
-        Vector4(const Vector3& vec);
+        Vector(const Vector<2, T>& vec);
+        Vector(const Vector<3, T>& vec);
 
-        F64 operator[](const U32& index);
-        const F64 operator[](const U32& index) const ;
+        T& operator[](const U32& index) { return m_Data[index]; }
+        const T& operator[](const U32& index) const { return m_Data[index]; }
 
-        Vector4 operator=(const Vector4& vec);
+        T& At(U32 index) { return m_Data[index]; }
 
-        Vector4 operator+(const Vector4& vec);
-        Vector4 operator+=(const Vector4& vec);
-        Vector4 operator-(const Vector4& vec);
-        Vector4 operator-=(const Vector4& vec);
-        Vector4 operator*(const F64& scalar);
-        Vector4 operator*=(const F64& scalar);
-        F64 operator*(const Vector4& vec);
-        Vector4 operator/(const F64& scalar);
-        Vector4 operator/=(const F64& scalar);
+        Vector operator=(const Vector<4, T>& vec);
 
-        Bool operator==(const Vector4& vec) const;
+        Vector operator+(const Vector<4, T>& vec);
+        Vector operator+=(const Vector<4, T>& vec);
+        Vector operator-(const Vector<4, T>& vec);
+        Vector operator-=(const Vector<4, T>& vec);
+        Vector operator*(const T& scalar);
+        Vector operator*=(const T& scalar);
+        T operator*(const Vector<4, T>& vec);
+        Vector operator/(const T& scalar);
+        Vector operator/=(const T& scalar);
+
+        Bool operator==(const Vector<4, T>& vec) const;
+        Bool operator!=(const Vector<4, T>& vec) const { return !(operator==(vec)); }
     };
-    std::ostream& operator<<(std::ostream& stream, const Vector4& vec);
-    Vector4 operator*(const F64& scalar, const Vector4& vec);
-    Vector4 operator*=(const F64& scalar, const Vector4& vec);
+    std::ostream& operator<<(std::ostream& stream, const Vector4<BASE_TYPE>& vec);
+    Vector4<BASE_TYPE> operator*(const BASE_TYPE& scalar, const Vector4<BASE_TYPE>& vec);
+    Vector4<BASE_TYPE> operator*=(const BASE_TYPE& scalar, const Vector4<BASE_TYPE>& vec);
 
+
+
+    template struct Vector<2, F32>;
+    template struct Vector<3, F32>;
+    template struct Vector<4, F32>;
+    template struct Vector<2, F64>;
+    template struct Vector<3, F64>;
+    template struct Vector<4, F64>;
 }

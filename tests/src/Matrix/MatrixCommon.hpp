@@ -1,138 +1,138 @@
 #pragma once
 
 
-#include <Matrix.hpp>
+#include <MatrixNew.hpp>
 
-Sylver::Math::Matrix2x2 mat220 = {
+Sylver::Math::Matrix2x2f mat220 = Sylver::Math::Matrix2x2f(
     {0.0, 0.0}, 
     {0.0, 0.0}
-};
-Sylver::Math::Matrix2x2 mat22a = {
+);
+Sylver::Math::Matrix2x2f mat22a = {
     {1.0, 3.0}, 
     {2.0, 4.0}
 };
-Sylver::Math::Matrix2x2 mat22b = {
+Sylver::Math::Matrix2x2f mat22b = {
     {7.0, 9.1},
     {5.4, 8.1},
 };
-Sylver::Math::Matrix2x3 mat230 = {
+Sylver::Math::Matrix2x3f mat230 = {
     {0.0, 0.0}, 
     {0.0, 0.0},
     {0.0, 0.0}
 };
-Sylver::Math::Matrix2x3 mat23a = {
+Sylver::Math::Matrix2x3f mat23a = {
     {1.0, 4.0}, 
     {2.0, 5.0},
     {3.0, 6.0}
 };
-Sylver::Math::Matrix2x3 mat23b = {
+Sylver::Math::Matrix2x3f mat23b = {
     {7.0, 9.1},
     {5.4, 8.1},
     {3.1, 0.5}
 };
-Sylver::Math::Matrix2x4 mat240 = {
+Sylver::Math::Matrix2x4f mat240 = {
     {0.0, 0.0}, 
     {0.0, 0.0},
     {0.0, 0.0},
     {0.0, 0.0}
 };
-Sylver::Math::Matrix2x4 mat24a = {
+Sylver::Math::Matrix2x4f mat24a = {
     {1.0, 5.0}, 
     {2.0, 6.0},
     {3.0, 7.0},
     {4.0, 8.0}
 };
-Sylver::Math::Matrix2x4 mat24b = {
+Sylver::Math::Matrix2x4f mat24b = {
     {7.0, 9.1},
     {5.4, 8.1},
     {3.1, 0.5},
     {11.3, 8.9}
 };
-Sylver::Math::Matrix3x2 mat320 = {
+Sylver::Math::Matrix3x2f mat320 = {
     {0.0, 0.0, 0.0}, 
     {0.0, 0.0, 0.0}
 };
-Sylver::Math::Matrix3x2 mat32a = {
+Sylver::Math::Matrix3x2f mat32a = {
     {1.0, 3.0, 5.0}, 
     {2.0, 4.0, 6.0}
 };
-Sylver::Math::Matrix3x2 mat32b = {
+Sylver::Math::Matrix3x2f mat32b = {
     {7.0, 9.1, 5.7},
     {5.4, 8.1, 4.1},
 };
-Sylver::Math::Matrix3x3 mat330 = {
+Sylver::Math::Matrix3x3f mat330 = {
     {0.0, 0.0, 0.0}, 
     {0.0, 0.0, 0.0},
     {0.0, 0.0, 0.0}
 };
-Sylver::Math::Matrix3x3 mat33a = {
+Sylver::Math::Matrix3x3f mat33a = {
     {1.0, 4.0, 7.0}, 
     {2.0, 5.0, 8.0},
     {3.0, 6.0, 9.0}
 };
-Sylver::Math::Matrix3x3 mat33b = {
+Sylver::Math::Matrix3x3f mat33b = {
     {7.0, 9.1, 5.7},
     {5.4, 8.1, 4.1},
     {8.7, 6.9, 4.6},
 };
-Sylver::Math::Matrix3x4 mat340 = {
+Sylver::Math::Matrix3x4f mat340 = {
     {0.0, 0.0, 0.0}, 
     {0.0, 0.0, 0.0},
     {0.0, 0.0, 0.0},
     {0.0, 0.0, 0.0},
 };
-Sylver::Math::Matrix3x4 mat34a = {
+Sylver::Math::Matrix3x4f mat34a = {
     {1.0, 5.0, 9.0}, 
     {2.0, 6.0, 10.0},
     {3.0, 7.0, 11.0},
     {4.0, 8.0, 12.0}
 };
-Sylver::Math::Matrix3x4 mat34b = {
+Sylver::Math::Matrix3x4f mat34b = {
     {7.0, 9.1, 5.7},
     {5.4, 8.1, 4.1},
     {8.7, 6.9, 4.6},
     {7.4, 5.5, 7.2},
 };
-Sylver::Math::Matrix4x2 mat420 = {
+Sylver::Math::Matrix4x2f mat420 = {
     {0.0, 0.0, 0.0, 0.0}, 
     {0.0, 0.0, 0.0, 0.0}
 };
-Sylver::Math::Matrix4x2 mat42a = {
+Sylver::Math::Matrix4x2f mat42a = {
     {1.0, 3.0, 5.0, 7.0}, 
     {2.0, 4.0, 6.0, 8.0}
 };
-Sylver::Math::Matrix4x2 mat42b = {
+Sylver::Math::Matrix4x2f mat42b = {
     {7.0, 9.1, 5.7, 4.5},
     {5.4, 8.1, 4.1, 0.5},
 };
-Sylver::Math::Matrix4x3 mat43 = {
+Sylver::Math::Matrix4x3f mat43 = {
     {0.0, 0.0, 0.0, 0.0}, 
     {0.0, 0.0, 0.0, 0.0},
     {0.0, 0.0, 0.0, 0.0}
 };
-Sylver::Math::Matrix4x3 mat43a = {
+Sylver::Math::Matrix4x3f mat43a = {
     {1.0, 4.0, 7.0, 10.0}, 
     {2.0, 5.0, 8.0, 11.0},
     {3.0, 6.0, 9.0, 12.0},
 };
-Sylver::Math::Matrix4x3 mat43b = {
+Sylver::Math::Matrix4x3f mat43b = {
     {7.0, 9.1, 5.7, 4.5},
     {5.4, 8.1, 4.1, 0.5},
     {9.5, 8.3, 1.7, 5.5},
 };
-Sylver::Math::Matrix4x4 mat44 = {
+Sylver::Math::Matrix4x4f mat44 = {
     {0.0, 0.0, 0.0, 0.0}, 
     {0.0, 0.0, 0.0, 0.0},
     {0.0, 0.0, 0.0, 0.0},
     {0.0, 0.0, 0.0, 0.0},
 };
-Sylver::Math::Matrix4x4 mat44a = {
+Sylver::Math::Matrix4x4f mat44a = {
     {1.0, 5.0, 9.0, 13.0}, 
     {2.0, 6.0, 10.0, 14.0},
     {3.0, 7.0, 11.0, 15.0},
     {4.0, 8.0, 12.0, 16.0},
 };
-Sylver::Math::Matrix4x4 mat44b = {
+Sylver::Math::Matrix4x4f mat44b = {
     {7.0, 9.1, 5.7, 4.5},
     {5.4, 8.1, 4.1, 0.5},
     {9.5, 8.3, 1.7, 5.5},

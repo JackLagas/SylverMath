@@ -3,31 +3,31 @@
 #include "Types.hpp"
 
 namespace Sylver::Math {
-    F64 Sin(const F64& rad);
-    F64 Cos(const F64& rad);
-    F64 Tan(const F64& rad);
-    F64 Csc(const F64& rad);
-    F64 Sec(const F64& rad);
-    F64 Cot(const F64& rad);
+    BASE_TYPE Sin(const BASE_TYPE& rad);
+    BASE_TYPE Cos(const BASE_TYPE& rad);
+    BASE_TYPE Tan(const BASE_TYPE& rad);
+    BASE_TYPE Csc(const BASE_TYPE& rad);
+    BASE_TYPE Sec(const BASE_TYPE& rad);
+    BASE_TYPE Cot(const BASE_TYPE& rad);
 
-    F64 Arcsin(const F64& rad);
-    F64 Arccos(const F64& rad);
-    F64 Arctan(const F64& rad);
-    F64 Arccsc(const F64& rad);
-    F64 Arcsec(const F64& rad);
-    F64 Arccot(const F64& rad);
+    BASE_TYPE Arcsin(const BASE_TYPE& rad);
+    BASE_TYPE Arccos(const BASE_TYPE& rad);
+    BASE_TYPE Arctan(const BASE_TYPE& rad);
+    BASE_TYPE Arccsc(const BASE_TYPE& rad);
+    BASE_TYPE Arcsec(const BASE_TYPE& rad);
+    BASE_TYPE Arccot(const BASE_TYPE& rad);
 
-    F64 Sinh(const F64& rad);
-    F64 Cosh(const F64& rad);
-    F64 Tanh(const F64& rad);
-    F64 Csch(const F64& rad);
-    F64 Sech(const F64& rad);
-    F64 Coth(const F64& rad);
+    BASE_TYPE Sinh(const BASE_TYPE& rad);
+    BASE_TYPE Cosh(const BASE_TYPE& rad);
+    BASE_TYPE Tanh(const BASE_TYPE& rad);
+    BASE_TYPE Csch(const BASE_TYPE& rad);
+    BASE_TYPE Sech(const BASE_TYPE& rad);
+    BASE_TYPE Coth(const BASE_TYPE& rad);
 
-    F64 Arcsinh(const F64& rad);
-    F64 Arccosh(const F64& rad);
-    F64 Arctanh(const F64& rad);
-    F64 Arccsch(const F64& rad);
-    F64 Arcsech(const F64& rad);
-    F64 Arccoth(const F64& rad);
+    BASE_TYPE Arcsinh(const BASE_TYPE& rad);
+    BASE_TYPE Arccosh(const BASE_TYPE& rad);
+    BASE_TYPE Arctanh(const BASE_TYPE& rad);
+    BASE_TYPE Arccsch(const BASE_TYPE& rad);
+    BASE_TYPE Arcsech(const BASE_TYPE& rad);
+    BASE_TYPE Arccoth(const BASE_TYPE& rad);
 }

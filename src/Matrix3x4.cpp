@@ -6,7 +6,7 @@ namespace Sylver::Math {
     // ************************************************************************
     // Mat3x4 *****************************************************************
     // ************************************************************************
-    Matrix3x4 Matrix3x4::Identity(F64 value){
+    Matrix3x4 Matrix3x4::Identity(BASE_TYPE value){
         return {
             { value,    0.0,    0.0     },
             { 0.0,      value,  0.0     },
@@ -29,10 +29,10 @@ namespace Sylver::Math {
         m_Values[3].z = 0.0;
     }
     Matrix3x4::Matrix3x4(
-        const F64& x1, const F64& y1, const F64& z1,
-        const F64& x2, const F64& y2, const F64& z2,
-        const F64& x3, const F64& y3, const F64& z3,
-        const F64& x4, const F64& y4, const F64& z4
+        const BASE_TYPE& x1, const BASE_TYPE& y1, const BASE_TYPE& z1,
+        const BASE_TYPE& x2, const BASE_TYPE& y2, const BASE_TYPE& z2,
+        const BASE_TYPE& x3, const BASE_TYPE& y3, const BASE_TYPE& z3,
+        const BASE_TYPE& x4, const BASE_TYPE& y4, const BASE_TYPE& z4
         ){
         m_Values[0].x = x1;
         m_Values[0].y = y1;
@@ -48,10 +48,10 @@ namespace Sylver::Math {
         m_Values[3].z = z4;
     }
     Matrix3x4::Matrix3x4(
-        const Vector3& v1,
-        const Vector3& v2,
-        const Vector3& v3,
-        const Vector3& v4
+        const Vector3<>& v1,
+        const Vector3<>& v2,
+        const Vector3<>& v3,
+        const Vector3<>& v4
     ){
         m_Values[0] = v1;
         m_Values[1] = v2;
@@ -115,57 +115,57 @@ namespace Sylver::Math {
 
     Matrix3x2 Matrix3x4::operator*(const Matrix4x2& mat){
         Matrix3x2 result;
-        result[0].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
-        result[1].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
-        result[0].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
-        result[1].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
-        result[0].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
-        result[1].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
+        result[0].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
+        result[1].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
+        result[0].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
+        result[1].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
+        result[0].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
+        result[1].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
         return result;
     }
     Matrix3x3 Matrix3x4::operator*(const Matrix4x3& mat){
         Matrix3x3 result;
-        result[0].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
-        result[1].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
-        result[2].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[2];
-        result[0].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
-        result[1].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
-        result[2].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[2];
-        result[0].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
-        result[1].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
-        result[2].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[2];
+        result[0].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
+        result[1].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
+        result[2].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[2];
+        result[0].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
+        result[1].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
+        result[2].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[2];
+        result[0].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
+        result[1].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
+        result[2].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[2];
         return result;
     }
     Matrix3x4 Matrix3x4::operator*(const Matrix4x4& mat){
         Matrix3x4 result;
-        result[0].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
-        result[1].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
-        result[2].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[2];
-        result[3].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].y, m_Values[3].x) * mat[3];
-        result[0].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
-        result[1].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
-        result[2].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[2];
-        result[3].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[3];
-        result[0].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
-        result[1].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
-        result[2].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[2];
-        result[3].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[3];
+        result[0].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
+        result[1].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
+        result[2].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[2];
+        result[3].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].y, m_Values[3].x) * mat[3];
+        result[0].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
+        result[1].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
+        result[2].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[2];
+        result[3].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[3];
+        result[0].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
+        result[1].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
+        result[2].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[2];
+        result[3].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[3];
         return result;
     }
     Matrix3x4 Matrix3x4::operator*=(const Matrix4x4& mat){
         Matrix3x4 result;
-        result[0].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
-        result[1].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
-        result[2].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[2];
-        result[3].x = Vector4(m_Values[0].x, m_Values[1].x, m_Values[2].y, m_Values[3].x) * mat[3];
-        result[0].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
-        result[1].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
-        result[2].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[2];
-        result[3].y = Vector4(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[3];
-        result[0].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
-        result[1].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
-        result[2].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[2];
-        result[3].z = Vector4(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[3];
+        result[0].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[0];
+        result[1].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[1];
+        result[2].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].x, m_Values[3].x) * mat[2];
+        result[3].x = Vector4<>(m_Values[0].x, m_Values[1].x, m_Values[2].y, m_Values[3].x) * mat[3];
+        result[0].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[0];
+        result[1].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[1];
+        result[2].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[2];
+        result[3].y = Vector4<>(m_Values[0].y, m_Values[1].y, m_Values[2].y, m_Values[3].y) * mat[3];
+        result[0].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[0];
+        result[1].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[1];
+        result[2].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[2];
+        result[3].z = Vector4<>(m_Values[0].z, m_Values[1].z, m_Values[2].z, m_Values[3].z) * mat[3];
 
         m_Values[0].x = result[0].x;
         m_Values[1].x = result[1].x;
@@ -181,27 +181,27 @@ namespace Sylver::Math {
         m_Values[3].z = result[3].z;
         return result;
     }
-    Matrix3x4 Matrix3x4::operator*(const F64& scalar){
+    Matrix3x4 Matrix3x4::operator*(const BASE_TYPE& scalar){
         Matrix3x4 result;
         for(U32 i = 0; i < 4; i++){
             result[i] = m_Values[i] * scalar;
         }
         return result;
     }
-    Matrix3x4 Matrix3x4::operator*=(const F64& scalar){
+    Matrix3x4 Matrix3x4::operator*=(const BASE_TYPE& scalar){
         for(U32 i = 0; i < 4; i++){
             m_Values[i] *= scalar;
         }
         return *this;
     }
-    Matrix3x4 Matrix3x4::operator/(const F64& scalar){
+    Matrix3x4 Matrix3x4::operator/(const BASE_TYPE& scalar){
         Matrix3x4 result;
         for(U32 i = 0; i < 4; i++){
             result[i] = m_Values[i] / scalar;
         }
         return result;
     }
-    Matrix3x4 Matrix3x4::operator/=(const F64& scalar){
+    Matrix3x4 Matrix3x4::operator/=(const BASE_TYPE& scalar){
         for(U32 i = 0; i < 4; i++){
             m_Values[i] /= scalar;
         }
@@ -239,7 +239,7 @@ namespace Sylver::Math {
         stream << std::format("|  {:.2f}  {:.2f}  {:.2f}  {:.2f}  |\n", mat[0].z, mat[1].z, mat[2].z, mat[3].z);
         return stream;
     }
-    Matrix3x4 operator*(const F64& scalar, const Matrix3x4& mat){
+    Matrix3x4 operator*(const BASE_TYPE& scalar, const Matrix3x4& mat){
         Matrix3x4 result;
         for(U32 i = 0; i < 4; i++){
             result[i] = scalar * mat[i];

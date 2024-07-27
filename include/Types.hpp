@@ -3,6 +3,14 @@
 #ifndef SYLVER_TYPES
 #define SYLVER_TYPES
 
+#if defined(SYLVER_MATH_64)
+#define BASE_TYPE F64
+#endif
+
+#ifndef BASE_TYPE
+#define BASE_TYPE F32
+#endif
+
 namespace Sylver{
     typedef unsigned char U8;
     typedef unsigned short U16;
@@ -20,8 +28,11 @@ namespace Sylver{
     typedef unsigned char Bool;
     
     namespace Math{
-        static const F64 PI = 3.141592653589793238462643383279502884197169;
-        static const F64 E = 2.7182818284590452353602874713526624977572470;
+        static const BASE_TYPE PI = 3.141592653589793238462643383279502884197169;
+        static const BASE_TYPE E = 2.7182818284590452353602874713526624977572470;
     }
 }
+
+
+
 #endif
